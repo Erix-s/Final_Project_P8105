@@ -85,7 +85,7 @@ Our team will produc a fully reproducible, Github-hosted project that identify p
 
 ## Project Timeline 
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Data
 timeline <- tibble::tibble(
   `Week / Date` = c(
