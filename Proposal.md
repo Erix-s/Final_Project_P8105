@@ -79,4 +79,23 @@ relevance, this project will contribute to understanding critical
 patterns in population health and inform future work in epidemiology and
 health equity.
 
-## 
+## Final Product Plans
+
+Our team will produc a fully reproducible, Github-hosted project that
+identify predictors of surival in breast cancer. Deliverables will
+inluce.
+
+- **Final Writtent Report**: A comprehensive report detailing workflow
+  following the required structure (Motivation, Related Work, Data,
+  Exploratory Analysis, Additional Analysis, Disucssion).
+
+- **Interactive Project Website**: Built uing R Markdown, hosted via
+  GitHub Pages, and design to communicate reulsts to a broad audiance.
+
+- **Tow-minute Video Summary**: A concise video presentation summarizing
+  key findings, methodology, and public health implications of the
+  project that is embedded into the project webpage.
+
+- **GitHub Reprository**: A well-organized repository containing all
+  code, data processing scripts, and documentation to ensure full
+  reproducibility of the analysis.
