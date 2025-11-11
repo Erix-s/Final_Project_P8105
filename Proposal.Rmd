@@ -3,6 +3,12 @@ title: "Proposal"
 output: github_document
 ---
 
+```{r, echo=FALSE, message=FALSE}
+# Load necessary libraries
+library(tidyverse)
+library(gt)
+```
+
 ## Team Member:  
 Eric Xu sx2402@cumc.columbia.edu  
 Alexandria Taylor at3583@cumc.columbia.edu  
@@ -77,6 +83,46 @@ Our team will produc a fully reproducible, Github-hosted project that identify p
 
 * Managing missing or inconcsistent data enteries. 
 
+## Project Timeline 
+
+```{r, echo=FALSE, message=FALSE}
+# Data
+timeline <- tibble::tibble(
+  `Week / Date` = c(
+    "Week 1 (Nov 11–17)",
+    "Week 2 (Nov 18–24)",
+    "Week 3 (Nov 25–Dec 1)",
+    "Week 4 (Dec 2–Dec 6)"
+  ),
+  Milestone = c(
+    "Data Cleaning & Setup",
+    "Exploratory Analysis & Visualization",
+    "Modeling & Interpretation",
+    "Final Deliverables & Submission"
+  ),
+  `Key Tasks` = c(
+    "Import data, recode variables, handle missing values, set up GitHub repo & R/Quarto structure.",
+    "Descriptives & plots; correlations; refine questions; draft report sections.",
+    "Kaplan–Meier & Cox models; test associations; interpret results; finalize figures & tables.",
+    "Finish report & website; record 2-min screencast; polish repo; submit by Dec 6 (11:59 PM)."
+  )
+)
+
+# Pretty table with gt
+timeline %>%
+  gt() %>%
+  tab_header(title = md("**Project Timeline (4 Weeks)**")) %>%
+  cols_width(
+    `Week / Date` ~ px(180),
+    Milestone ~ px(220),
+    `Key Tasks` ~ px(420)
+  ) %>%
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  ) %>%
+  fmt_markdown(columns = everything())
+```
 
 
 
