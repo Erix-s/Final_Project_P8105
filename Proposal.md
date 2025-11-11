@@ -1,0 +1,76 @@
+Proposal
+================
+
+## Team Member:
+
+Eric Xu <sx2402@cumc.columbia.edu>  
+Alexandria Taylor <at3583@cumc.columbia.edu>  
+Kevin Guzman <kg3006@cumc.columbia.edu>  
+Edmund Wong <ecw2178@cumc.columbia.edu>  
+Jiseung Lee <jl6458@cumc.columbia.edu>
+
+## Proposal(draft):
+
+*This project aims to investigate survival outcomes in a pressing
+women’s health issue, emphasizing the demographic and biological factors
+that shape disease prognosis and health equity.*
+
+**Primary Topic: Breast Cancer Survival and Risk Patterns**  
+Breast cancer remains one of the most prevalent disease worldwide,
+accounting for a substantial proportion of cancer incidence and health
+burden. Despite advances in early detection and treatment, disparities
+in outcomes is often suggested across demographic and biological groups.
+
+Understanding how patient characteristics, tumor biology, and receptor
+profiles influence survival and risk is essential for improving
+prognosis and healthcare interventions.
+
+*This project starts with a public, de-identified dataset derived from
+the 2017 SEER (Surveillance, Epidemiology, and End Results) Program,
+containing information from 4,024 breast cancer cases with 16
+demographic, clinical, and molecular variables. The data include
+survival time, tumor stage and grade, hormone receptor status, lymph
+node involvement, and other key prognostic factors.*
+
+In further investigation, usage of this dataset or a full SEER dataset
+with more detailed covariates would be considered. The main goal is to
+explore survival differences by demographic group, tumor
+characteristics, and receptor status, as well as broader examination of
+disease burden and disparities in breast cancer outcomes.
+
+The project may also incorporate publicly available SEER incidence data
+(1975–2022) to contextualize survival findings within trends in breast
+cancer occurrence and population-level risk patterns over time.
+
+*If SEER data set is not applicable or not informative, an alternative
+plan would be applied.*
+
+**Alternative Topic: Infant and Maternal Mortality in the United
+States**  
+As an alternative or complementary direction, this project may
+investigate patterns and disparities in infant and maternal mortality
+using national data from the CDC/NCHS Birth–Infant Death and Maternal
+Mortality datasets. These datasets provide detailed demographic and
+health information on mothers and infants across the United States,
+offering a rich foundation for understanding the social, economic, and
+medical determinants of survival in early life and maternal health.
+
+This topic is of major public health importance, as both infant and
+maternal mortality reflect the overall effectiveness of healthcare
+systems, access to care, and equity in health outcomes. Analyses could
+focus on identifying demographic patterns, geographic disparities, and
+population subgroups at elevated risk, contributing to ongoing national
+efforts to reduce preventable deaths and improve maternal–child health
+outcomes.
+
+**Project Vision**
+
+Both directions align closely with the goals of applied epidemiologic
+and data science research. The overarching aim is to use population data
+to describe health disparities across female health burden and
+systematic determinants. With this project, we aim to identify key
+determinants of disease outcomes, and highlight areas for intervention.
+By integrating data management, exploratory insight, and public health
+relevance, this project will contribute to understanding critical
+patterns in population health and inform future work in epidemiology and
+health equity.
