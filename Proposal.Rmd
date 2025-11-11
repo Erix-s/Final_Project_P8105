@@ -14,10 +14,11 @@ Jiseung Lee jl6458@cumc.columbia.edu
 _This project aims to investigate survival outcomes in a pressing women’s health issue, emphasizing the demographic and biological factors that shape disease prognosis and health equity._
 
 **Primary Topic: Breast Cancer Survival and Risk Patterns**  
-  Breast cancer remains one of the most prevalent disease worldwide, accounting for a substantial proportion of cancer incidence and health burden. Despite advances in early detection and treatment, disparities in outcomes is often suggested across demographic and biological groups. 
+  Breast cancer remains one of the most prevalent disease worldwide, accounting for a substantial proportion of cancer incidence and health burden. Despite advances in early detection and treatment, disparities in outcomes is often suggested across demographic and biological groups. Clinical outcomes are influenced by multiple factors, including tumor size, stage, lymph node involvement, and hormone recpeotor status. 
 
-  Understanding how patient characteristics, tumor biology, and receptor profiles influence survival and risk is essential for improving prognosis and healthcare interventions.
-
+  Understanding how patient characteristics, tumor biology, and receptor profiles influence survival and risk is essential for improving risk stratification and guide treatment decisions. This project aims to explore the relationship between factors predicting surivial outcome amoung patients who have breast cancer. 
+  
+  
 _This project starts with a public, de-identified dataset derived from the 2017 SEER (Surveillance, Epidemiology, and End Results) Program, containing information from 4,024 breast cancer cases with 16 demographic, clinical, and molecular variables. The data include survival time, tumor stage and grade, hormone receptor status, lymph node involvement, and other key prognostic factors._
 
   In further investigation, usage of this dataset or a full SEER dataset with more detailed covariates would be considered.  The main goal is to explore survival differences by demographic group, tumor characteristics, and receptor status, as well as broader examination of disease burden and disparities in breast cancer outcomes. 
@@ -34,3 +35,5 @@ _If SEER data set is not applicable or not informative, an alternative plan woul
 **Project Vision**
 
   Both directions align closely with the goals of applied epidemiologic and data science research. The overarching aim is to use population data to describe health disparities across female health burden and systematic determinants. With this project, we aim to identify key determinants of disease outcomes, and highlight areas for intervention. By integrating data management, exploratory insight, and public health relevance, this project will contribute to understanding critical patterns in population health and inform future work in epidemiology and health equity.
+  
+## 

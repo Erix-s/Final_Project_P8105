@@ -20,10 +20,14 @@ Breast cancer remains one of the most prevalent disease worldwide,
 accounting for a substantial proportion of cancer incidence and health
 burden. Despite advances in early detection and treatment, disparities
 in outcomes is often suggested across demographic and biological groups.
+Clinical outcomes are influenced by multiple factors, including tumor
+size, stage, lymph node involvement, and hormone recpeotor status.
 
 Understanding how patient characteristics, tumor biology, and receptor
-profiles influence survival and risk is essential for improving
-prognosis and healthcare interventions.
+profiles influence survival and risk is essential for improving risk
+stratification and guide treatment decisions. This project aims to
+explore the relationship between factors predicting surivial outcome
+amoung patients who have breast cancer.
 
 *This project starts with a public, de-identified dataset derived from
 the 2017 SEER (Surveillance, Epidemiology, and End Results) Program,
@@ -74,3 +78,5 @@ By integrating data management, exploratory insight, and public health
 relevance, this project will contribute to understanding critical
 patterns in population health and inform future work in epidemiology and
 health equity.
+
+## 
