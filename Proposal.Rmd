@@ -44,14 +44,14 @@ _If SEER data set is not applicable or not informative, an alternative plan woul
   
 ## Final Product Plans 
 
-Our team will produc a fully reproducible, Github-hosted project that identify predictors of surival in breast cancer. Deliverables will inluce. 
+Our team will produce a fully reproducible, Github-hosted project that identify predictors of surival in breast cancer. Deliverables will inluce. 
 
 * **Final Writtent Report**: A comprehensive report detailing workflow following the required structure (Motivation, Related Work, Data, Exploratory Analysis, Additional Analysis, Disucssion). 
-* **Interactive Project Website**: Built uing R Markdown, hosted via GitHub Pages, and design to communicate reulsts to a broad audiance. 
+* **Interactive Project Website**: Built using R Markdown, hosted via GitHub Pages, and design to communicate reulsts to a broad audiance. 
 
 * **Tow-minute Video Summary**: A concise video presentation summarizing key findings, methodology, and public health implications of the project that is embedded into the project webpage. 
 
-* **GitHub Reprository**: A well-organized repository containing all code, data processing scripts, and documentation to ensure full reproducibility of the analysis.
+* **GitHub Repository**: A well-organized repository containing all code, data processing scripts, and documentation to ensure full reproducibility of the analysis.
 
 ## Planned Analysis/Visualization/Coding Challanges 
 
@@ -81,7 +81,7 @@ Our team will produc a fully reproducible, Github-hosted project that identify p
 
 * Reformating data for surival analysis 
 
-* Managing missing or inconcsistent data enteries. 
+* Managing missing or inconsistent data enteries. 
 
 ## Project Timeline 
 
