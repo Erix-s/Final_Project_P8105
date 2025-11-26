@@ -28,10 +28,25 @@ library(janitor)
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 # Loading the data 
 cancer <- read_csv("data/cancer_data.csv") %>% 
-  janitor::clean_names() 
+  janitor::clean_names() %>% 
+  mutate(across(where(is.character), as.factor)) %>% 
+  #Reordering some variables 
+    mutate(
+      #race White =1, Black =2, Other=3
+      race = factor(race, levels = c("White", "Black", "Other")),
+      #marital status: Single =1, Married =2, Separated =3, Divorced = 4, Widowed =5
+      marital_status = factor(marital_status, levels = c("Single", "Married", "Separated", "Divorced", "Widowed")),
+      #differentiate: Well differentiated =1, Moderately differentiated =2, Poorly differentiated =3, Undifferentiated =4
+      differentiate = factor(differentiate, levels = c("Well differentiated", "Moderately differentiated", "Poorly differentiated", "Undifferentiated")),
+      #a_stage: Regional =1, Distant =2
+      a_stage = factor(a_stage, levels = c("Regional", "Distant"))
+    )
 
 # Checking for missing data 
 colSums(is.na(cancer)) #there are no missing data
+
+# Saving data as cancer_clean into files folder 
+write_csv(cancer, "data/cancer_clean.csv")
 ```
 
 ### Understanding the Crime Scene
