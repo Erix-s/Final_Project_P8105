@@ -33,6 +33,10 @@ output:
     </p>
   </section>
   
+  <img src="photos/kevin_guzman.png" 
+   alt="Breast Cancer Mugshot" 
+   style="width:300px; border:3px solid black;">
+  
   <!-- Alexandria Taylor -->
   <section class="prosecutor" id="alexandria-taylor">
     <h2>Alexandria Taylor</h2>
