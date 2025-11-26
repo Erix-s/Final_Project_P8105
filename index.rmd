@@ -15,12 +15,13 @@ output:
 
   <div class="blood-stamp">CONFIDENTIAL CASE FILE</div>
 
-  <h1 class="casefile-title">THE TUMOR TRIAL</h1>
-  <h2 class="casefile-subtitle">Greed, Deception, Death — Guilty Until Proven Otherwise?</h2>
+  <h1 class="casefile-title">Breast Cancer v. the People of P8105</h1>
+  <h2 class="casefile-subtitle">Greed, Deception, Death — Guilty Until Proven Otherwise</h2>
 
   <p class="casefile-lede">
-    The suspect: <strong>Breast Cancer</strong>.  
-    The procecutor: <strong>Kevin Guzman, Alexandria Taylor, Eric Xu, Edmund Wong, Jiseung Lee</strong>.
+    The defendent: <strong>Breast Cancer</strong>.  
+    The prosecutors: <strong>Kevin Guzman, Alexandria Taylor, Eric Xu, Edmund Wong, Jiseung Lee</strong>.
+    
     Charges: <strong>uncontrolled growth</strong>, <strong>silent invasion</strong>, <strong> and avoidable loss of life</strong>.  
     We serve as the data-driven prosecution. It is our job they don't get away with it.
   </p>
@@ -29,8 +30,22 @@ output:
     Using forensic analytics (biological signals, clinical clues, and survival records we reconstruct the crime scene). 
     Is the evidence strong enough to convict, or does reasonable doubt remain?
   </p>
+  
+  <p class="casefile-lede">
+    Explore the evidence below to examine the case against breast cancer. 
+    Review the data, the analysis, and the findings. 
+    Then decide for yourself: Is breast cancer guilty as charged?
+  </p>
+  
+   <p class="casefile-lede">
+    Click the folders below to explore each section of the case file.
+  </p>
 
-  <a href="#case-file" class="casefile-button">📁 Open Evidence Dossier</a>
+  
+  <a href="" class="casefile-button">📁 About the Prosecutors</a> <a href="" class="casefile-button">📁 About the Defendant</a> <a href="evidence.html" class="casefile-button">📁 Evidence Source</a> <a href="" class="casefile-button">📁 Exploring the Crime Scene</a> <a href="" class="casefile-button">📁 Evidence Against</a> <a href="" class="casefile-button">📁 Closing Statement</a> <a href="" class="casefile-button">📁 Crime Report</a> <a href="" class="casefile-button">📁 Jury Deliberation</a>
+
+
+
 
 </div>
 

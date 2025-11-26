@@ -1,0 +1,19 @@
+---
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    theme: flatly
+    highlight: tango
+    df_print: paged
+    css: style2.css
+---
+
+<div class="casefile-wrapper">
+
+  <div class="blood-stamp">CONFIDENTIAL CASE FILE</div>
+
+  <h1 class="casefile-title"></h1>
+
