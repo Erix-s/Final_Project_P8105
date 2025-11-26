@@ -19,3 +19,13 @@ output:
 
   <h1 class="casefile-title">About the Crime Scene</h1>
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#Loading libraries needed for this section 
+library (tidyverse)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Loading the data 
+cancer <- read_csv("data/cancer_data.csv")
+```
+
