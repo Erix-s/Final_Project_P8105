@@ -51,14 +51,14 @@ write_csv(cancer, "data/cancer_clean.csv")
 ### Understanding the Crime Scene
 The crime scene is where the evidence is found. In this case, the crime scene is the biological and clinical data collected from patients diagnosed with breast cancer. This data includes various features such as tumor size, lymph node involvement, hormone receptor status, and patient demographics. These features help us understand the nature of the crime committed by breast cancer and provide insights into its behavior
 
-#### Understanding the ages 
+#### Age of the typical victim
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5, fig.height=4}
 # Visualizing the age distribution
 cancer %>%
   ggplot(aes(x = age)) +
   geom_histogram(binwidth = 5, fill = "lightblue", color = "black") +
-  labs(title = "Age Distribution of Affected Patients",
+  labs(title = "Age Distribution of Affected Victim",
        x = "Age",
        y = "Count") +
   theme_minimal()
