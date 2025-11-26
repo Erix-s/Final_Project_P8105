@@ -25,10 +25,13 @@ library(tidyverse)
 library(janitor)
 ```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 # Loading the data 
 cancer <- read_csv("data/cancer_data.csv") %>% 
-  janitor::clean_names()
+  janitor::clean_names() 
+
+# Checking for missing data 
+colSums(is.na(cancer)) #there are no missing data
 ```
 
 ### Understanding the Crime Scene
