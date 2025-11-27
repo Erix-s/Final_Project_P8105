@@ -19,3 +19,216 @@ output:
 
   <h1 class="casefile-title">Evidence Against the Defendant</h1>
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Loading necessary libraries
+library(tidyverse)
+library(survival)
+library(survminer)
+library(janitor)
+library(ggsurvfit)
+library(rsample)
+library(broom)
+library(purrr)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+# Loading the cleaned data
+# Loading the data 
+cancer <- read_csv("data/cancer_data.csv") %>% 
+  janitor::clean_names() %>% 
+  mutate(across(where(is.character), as.factor)) %>% 
+  #Reordering some variables 
+    mutate(
+      #race White =1, Black =2, Other=3
+      race = factor(race, levels = c("White", "Black", "Other")),
+      #marital status: Single =1, Married =2, Separated =3, Divorced = 4, Widowed =5
+      marital_status = factor(marital_status, levels = c("Single", "Married", "Separated", "Divorced", "Widowed")),
+      #differentiate: Well differentiated =1, Moderately differentiated =2, Poorly differentiated =3, Undifferentiated =4
+      differentiate = factor(differentiate, levels = c("Well differentiated", "Moderately differentiated", "Poorly differentiated", "Undifferentiated")),
+      #a_stage: Regional =1, Distant =2
+      a_stage = factor(a_stage, levels = c("Regional", "Distant"))
+    )
+
+# Create a binary event indicator
+# (Adjust "Dead" below if your status labels are different)
+cancer <- cancer %>%
+  mutate(
+    status_bin = if_else(status == "Dead", 1, 0)
+  )
+```
+
+The histogram of survival time shows a right-skewed distribution: many victims live with the consequences of breast cancer for several years, while a subset experience earlier “fatal” outcomes. Coloring by vital status highlights that deaths cluster at shorter follow-up times, as we would expect when a dangerous criminal strikes early.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=6}
+km_race <- survfit2(Surv(survival_months, status_bin) ~ race, data = cancer)
+
+p_km_race <- ggsurvfit(km_race) +
+  add_risktable() +
+  labs(
+  title = "Survival by Race",
+  x = "Months Since Diagnosis",
+  y = "Survival Probability",
+  color = "Race"
+  ) +
+  theme_minimal()
+
+p_km_race
+```
+
+
+The Kaplan–Meier curves show how survival unfolds over time for each racial group. Early on, survival probabilities remain high, but the curves gradually step downward as more victims succumb. The attached risk table shows how many patients remain “under surveillance” at each time point, reminding the jury that the end of each curve is based on relatively few individuals.
+
+Comparing curves across racial groups reveals apparent disparities in survival. Some groups show consistently lower survival probabilities at comparable times, suggesting that Breast Cancer does not strike all communities equally. These differences motivate treating race as a key covariate in our multivariable survival model to formally assess these disparities while adjusting for other clinical factors.
+
+### Putting the Defendant on the Stand: Cox Proportional Hazards Model
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+# Define the Cox model formula
+cox_formula <- as.formula(Surv(survival_months, status_bin) ~ age + race + marital_status + t_stage + n_stage + differentiate + tumor_size + estrogen_status + progesterone_status + regional_node_examined + regional_node_positive)
+
+# Tidy Cox model function (re-usable for bootstrap / stratified models)
+
+fit_cox <- function(data, formula) {coxph(formula, data = data) %>% 
+    broom::tidy(exponentiate = TRUE, conf.int = TRUE)
+  }
+
+cox_results <- fit_cox(cancer, cox_formula)
+
+#Rename term levels for better visualization
+cox_results <- cox_results %>%
+  mutate(term = recode(term,
+                       "age" = "Age",
+                       "raceBlack" = "Race: Black",
+                       "raceOther" = "Race: Other",
+                       "raceWhite" = "Race: White",
+                       "marital_statusMarried" = "Marital Status: Married",
+                       "marital_statusSeparated" = "Marital Status: Separated",
+                       "marital_statusDivorced" = "Marital Status: Divorced",
+                       "marital_statusWidowed" = "Marital Status: Widowed",
+                       "t_stageT1" = "Tumor Stage: T1",
+                       "t_stageT2" = "Tumor Stage: T2",
+                       "t_stageT3" = "Tumor Stage: T3",
+                       "t_stageT4" = "Tumor Stage: T4",
+                       "n_stageN1" = "Node Stage: N1",
+                       "n_stageN2" = "Node Stage: N2",
+                       "n_stageN3" = "Node Stage: N3",
+                       "differentiateModerately differentiated" = "Differentiate: Moderately differentiated",
+                       "differentiatePoorly differentiated" = "Differentiate: Poorly differentiated",
+                       "differentiateUndifferentiated" = "Differentiate: Undifferentiated",
+                       "tumor_size" = "Tumor Size",
+                       "estrogen_statusPositive" = "Estrogen Status: Positive",
+                       "progesterone_statusPositive" = "Progesterone Status: Positive",
+                       "regional_node_examined" = "Regional Node Examined",
+                       "regional_node_positive" = "Regional Node Positive"))
+cox_results
+```
+
+The Cox proportional hazards model allows us to quantify the impact of various clinical and demographic factors on survival time. The hazard ratios (HR) indicate how the risk of death changes with each covariate, holding all other factors constant. For example, an HR greater than 1 suggests increased risk, while an HR less than 1 indicates a protective effect.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=8}
+# Visualizing Cox model results in forrest plot
+p_cox_forest <- cox_results %>%
+  filter(term != "(Intercept)") %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  ggplot(aes(x = term, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +
+  geom_pointrange() +
+  coord_flip() +
+  labs(
+    title = "Cox Proportional Hazards Model Results",
+    x = "Covariates",
+    y = "Hazard Ratio (HR)"
+  ) +
+  theme_minimal()
+
+p_cox_forest
+```
+
+The forest plot visualizes the hazard ratios and their 95% confidence intervals for each covariate in the Cox model. Covariates with confidence intervals that do not cross 1 are considered statistically significant predictors of survival. This visualization helps the jury quickly identify which factors have the most substantial impact on patient outcomes.
+
+The Cox model results provide compelling evidence against the defendant, Breast Cancer. Several clinical and demographic factors significantly influence survival, highlighting the complex interplay of biology and social determinants in this crime. The jury must consider these findings carefully when deliberating on the guilt of the defendant.
+
+### Checking the Rules of the Court: Proportional Hazards Assumption
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+cox_obj <- coxph(cox_formula, data = cancer)
+ph_test <- cox.zph(cox_obj)
+ph_test
+```
+
+To be admissible, the Cox model must satisfy the proportional hazards (PH) assumption—that each covariate’s effect on the hazard is roughly constant over time. We assess this using Schoenfeld residual–based tests. Small p-values raise concerns about PH violation. Those for estrogen and progresterone status are below 0.05, which raises concern about the evidence. 
+
+### Shaking the Evidence: Bootstrap Hazard Ratios (200 Resamples)
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(123)  # For reproducibility
+# Create bootstrap resamples
+boot_resamples <- bootstraps(cancer, times = 200)
+# Fit Cox model to each bootstrap sample
+boot_cox_results <- boot_resamples %>%
+  mutate(cox_model = map(splits, ~ fit_cox(as.data.frame(.x), cox_formula))) %>%
+  unnest(cox_model)
+# Summarize bootstrap results
+boot_summary <- boot_cox_results %>%
+  group_by(term) %>%
+  summarize(
+    boot_estimate = mean(estimate),
+    boot_conf_low = quantile(estimate, 0.025),
+    boot_conf_high = quantile(estimate, 0.975)
+  ) %>%
+  ungroup() %>% 
+  mutate(term = recode(term,
+                       "age" = "Age",
+                       "raceBlack" = "Race: Black",
+                       "raceOther" = "Race: Other",
+                       "raceWhite" = "Race: White",
+                       "marital_statusMarried" = "Marital Status: Married",
+                       "marital_statusSeparated" = "Marital Status: Separated",
+                       "marital_statusDivorced" = "Marital Status: Divorced",
+                       "marital_statusWidowed" = "Marital Status: Widowed",
+                       "t_stageT1" = "Tumor Stage: T1",
+                       "t_stageT2" = "Tumor Stage: T2",
+                       "t_stageT3" = "Tumor Stage: T3",
+                       "t_stageT4" = "Tumor Stage: T4",
+                       "n_stageN1" = "Node Stage: N1",
+                       "n_stageN2" = "Node Stage: N2",
+                       "n_stageN3" = "Node Stage: N3",
+                       "differentiateModerately differentiated" = "Differentiate: Moderately differentiated",
+                       "differentiatePoorly differentiated" = "Differentiate: Poorly differentiated",
+                       "differentiateUndifferentiated" = "Differentiate: Undifferentiated",
+                       "tumor_size" = "Tumor Size",
+                       "estrogen_statusPositive" = "Estrogen Status: Positive",
+                       "progesterone_statusPositive" = "Progesterone Status: Positive",
+                       "regional_node_examined" = "Regional Node Examined",
+                       "regional_node_positive" = "Regional Node Positive"))
+boot_summary
+```
+
+The bootstrap analysis provides robust estimates of hazard ratios and confidence intervals by resampling the data multiple times. This approach helps validate the stability of our Cox model findings, ensuring that the evidence against the defendant is not an artifact of random variation in the sample. The 95% bootstrap confidence were intervals offer additional assurance about the reliability of our estimates.
+
+### Can We Predict Who Will Be Attacked Next? 5-Fold Cross-Validation
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+set.seed(123)  # For reproducibility
+# Create 5-fold cross-validation splits
+cv_splits <- vfold_cv(cancer, v = 5)
+# Function to calculate C-index for Cox model
+calc_cindex <- function(train_data, test_data, formula) {
+  cox_model <- coxph(formula, data = train_data)
+  surv_pred <- predict(cox_model, newdata = test_data, type = "risk")
+  concordance_index <- survConcordance(Surv(test_data$survival_months, test_data$status_bin) ~ surv_pred)$concordance
+  return(concordance_index)
+}
+# Perform cross-validation
+cv_results <- cv_splits %>%
+  mutate(cindex = map2_dbl(splits, splits, ~ {
+    train_data <- analysis(.x)
+    test_data <- assessment(.y)
+    calc_cindex(train_data, test_data, cox_formula)
+  }))
+# Summarize C-index results
+cv_summary <- cv_results %>%
+  summarize(mean_cindex = mean(cindex), sd_cindex = sd(cindex))
+cv_summary
+```
+
+The 5-fold cross-validation assesses the predictive performance of our Cox model by partitioning the data into training and testing sets. The concordance index (C-index) quantifies how well the model discriminates between patients with different survival outcomes. A C-index closer to 1 indicates excellent predictive ability, while a value around 0.5 suggests no better than random guessing. Our model's mean C-index of `r round(cv_summary$mean_cindex, 3)` (SD `r round(cv_summary$sd_cindex, 3)`) demonstrates its utility in predicting who is at highest risk of death. 
