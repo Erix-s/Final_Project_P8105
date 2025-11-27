@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Proposal</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Proposal</h1>
+
+</div>
+
+
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.5.2</code></pre>
+<div id="team-member" class="section level2">
+<h2>Team Member:</h2>
+<p>Eric Xu <a href="mailto:sx2402@cumc.columbia.edu"
+class="email">sx2402@cumc.columbia.edu</a><br />
+Alexandria Taylor <a href="mailto:at3583@cumc.columbia.edu"
+class="email">at3583@cumc.columbia.edu</a><br />
+Kevin Guzman <a href="mailto:kg3006@cumc.columbia.edu"
+class="email">kg3006@cumc.columbia.edu</a><br />
+Edmund Wong <a href="mailto:ecw2178@cumc.columbia.edu"
+class="email">ecw2178@cumc.columbia.edu</a><br />
+Jiseung Lee <a href="mailto:jl6458@cumc.columbia.edu"
+class="email">jl6458@cumc.columbia.edu</a></p>
+</div>
+<div id="proposaldraft" class="section level2">
+<h2>Proposal(draft):</h2>
+<p><em>This project aims to investigate survival outcomes in a pressing
+women’s health issue, emphasizing the demographic and biological factors
+that shape disease prognosis and health equity.</em></p>
+<p><strong>Primary Topic: Breast Cancer Survival and Risk
+Patterns</strong><br />
+Breast cancer remains one of the most prevalent disease worldwide,
+accounting for a substantial proportion of cancer incidence and health
+burden. Despite advances in early detection and treatment, disparities
+in outcomes is often observed across demographic and biological groups.
+Clinical outcomes are influenced by multiple factors, including tumor
+size, stage, lymph node involvement, and hormone receptor status.</p>
+<p>Understanding how patient characteristics, tumor biology, and
+receptor profiles influence survival and risk is essential for improving
+risk stratification and guiding treatment decisions. This project aims
+to explore the relationship between the following factors predicting
+survival outcomes among patients with breast cancer.</p>
+<p><em>This project starts with a public, de-identified dataset derived
+from the 2017 SEER (Surveillance, Epidemiology, and End Results)
+Program, containing information from 4,024 breast cancer cases with 16
+demographic, clinical, and molecular variables. The data include
+survival time, tumor stage and grade, hormone receptor status, lymph
+node involvement, and other key prognostic factors.</em></p>
+<p>In further investigation, usage of this dataset or a full SEER
+dataset with more detailed covariates would be considered. The main goal
+is to explore survival differences by demographic group, tumor
+characteristics, and receptor status, as well as broader examination of
+disease burden and disparities in breast cancer outcomes.</p>
+<p>The project may also incorporate publicly available SEER incidence
+data (1975–2022) to contextualize survival findings within trends in
+breast cancer occurrence and population-level risk patterns over
+time.</p>
+<p><em>If SEER data set is not applicable or not informative, an
+alternative plan would be applied.</em></p>
+<p><strong>Alternative Topic: Infant and Maternal Mortality in the
+United States</strong><br />
+As an alternative or complementary direction, this project may
+investigate patterns and disparities in infant and maternal mortality
+using national data from the CDC/NCHS Birth–Infant Death and Maternal
+Mortality datasets. These datasets provide detailed demographic and
+health information on mothers and infants across the United States,
+offering a rich foundation for understanding the social, economic, and
+medical determinants of survival in early life and maternal health.</p>
+<p>This topic is of major public health importance, as both infant and
+maternal mortality reflect the overall effectiveness of healthcare
+systems, access to care, and equity in health outcomes. Analyses could
+focus on identifying demographic patterns, geographic disparities, and
+population subgroups at elevated risk, contributing to ongoing national
+efforts to reduce preventable deaths and improve maternal–child health
+outcomes.</p>
+<p><strong>Project Vision</strong></p>
+<p>Both directions align closely with the goals of applied epidemiologic
+and data science research. The overarching aim is to use population data
+to describe health disparities across female health burden and
+systematic determinants. With this project, we aim to identify key
+determinants of disease outcomes, and highlight areas for intervention.
+By integrating data management, exploratory insight, and public health
+relevance, this project will contribute to understanding critical
+patterns in population health and inform future work in epidemiology and
+health equity.</p>
+</div>
+<div id="final-product-plans" class="section level2">
+<h2>Final Product Plans</h2>
+<p>Our team will produce a fully reproducible, Github-hosted project
+that identify predictors of survival in breast cancer. Deliverables will
+include.</p>
+<ul>
+<li><p><strong>Final Written Report</strong>: A comprehensive report
+detailing workflow following the required structure (Motivation, Related
+Work, Data, Exploratory Analysis, Additional Analysis,
+Discussion).</p></li>
+<li><p><strong>Interactive Project Website</strong>: Built using R
+Markdown, hosted via GitHub Pages, and design to communicate results to
+a broad audience.</p></li>
+<li><p><strong>Two-minute Video Summary</strong>: A concise video
+presentation summarizing key findings, methodology, and public health
+implications of the project that is embedded into the project
+webpage.</p></li>
+<li><p><strong>GitHub Repository</strong>: A well-organized repository
+containing all code, data processing scripts, and documentation to
+ensure full reproducibility of the analysis.</p></li>
+</ul>
+</div>
+<div id="planned-analysisvisualizationcoding-challanges"
+class="section level2">
+<h2>Planned Analysis/Visualization/Coding Challanges</h2>
+<div id="planned-analysis" class="section level3">
+<h3>Planned Analysis:</h3>
+<ul>
+<li><p>Descriptive statistic and distribution of demographics and
+clincial variables</p></li>
+<li><p>Correlation and association test between tumor
+characteristics/lymph node characteristics/hormone receptor status and
+survival outcomes</p></li>
+<li><p>Kaplan-Meier survival analysis</p></li>
+<li><p>Cox proportional hazards regression</p></li>
+</ul>
+</div>
+<div id="visualizations" class="section level3">
+<h3>Visualizations:</h3>
+<ul>
+<li><p>Kaplan-Meier survival curves stratified by key variables (e.g.,
+tumor stage, hormone receptor status)</p></li>
+<li><p>Boxplots of tumor size by stage</p></li>
+<li><p>Heatmap of variables correlation</p></li>
+</ul>
+</div>
+<div id="coding-challenges" class="section level3">
+<h3>Coding Challenges:</h3>
+<ul>
+<li><p>Data cleaning and preprocessing of SEER dataset (if able to
+be)</p></li>
+<li><p>Cleaning categorial variables in publicly available data
+set</p></li>
+<li><p>Reformating data for survival analysis</p></li>
+<li><p>Managing missing or inconsistent data enteries.</p></li>
+</ul>
+</div>
+</div>
+<div id="project-timeline" class="section level2">
+<h2>Project Timeline</h2>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="23%" />
+<col width="62%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Week / Date</th>
+<th align="left">Milestone</th>
+<th align="left">Key Tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Week 1 (Nov 11–17)</td>
+<td align="left">Data Cleaning &amp; Setup</td>
+<td align="left">Import data, recode variables, handle missing values,
+set up<br>GitHub repo &amp; R/Quarto structure.</td>
+</tr>
+<tr class="even">
+<td align="left">Week 2 (Nov 18–24)</td>
+<td align="left">Exploratory Analysis &amp; Visualization</td>
+<td align="left">Descriptives &amp; plots; correlations; refine
+questions; draft<br>report sections.</td>
+</tr>
+<tr class="odd">
+<td align="left">Week 3 (Nov 25–Dec 1)</td>
+<td align="left">Modeling &amp; Interpretation</td>
+<td align="left">Kaplan–Meier &amp; Cox models; test associations;
+interpret<br>results; finalize figures &amp; tables.</td>
+</tr>
+<tr class="even">
+<td align="left">Week 4 (Dec 2–Dec 6)</td>
+<td align="left">Final Deliverables &amp; Submission</td>
+<td align="left">Finish report &amp; website; record 2-min screencast;
+polish<br>repo; submit by Dec 6 (11:59 PM).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -43,7 +43,7 @@ output:
     <h3 class="prosecutor-role">Clinical Evidence Specialist</h3>
     <p>
       Alexandria weaves together epidemiology, biostatistics, and clinical insight to
-      build the core evidentiary narrative. He turns messy datasets into
+      build the core evidentiary narrative. She turns messy datasets into
       razor-sharp arguments, ensuring every charge against Breast Cancer is backed
       by airtight analytics.
     </p>
@@ -52,13 +52,17 @@ output:
   <!-- Eric Xu -->
   <section class="prosecutor" id="eric-xu">
     <h2>Eric Xu</h2>
-    <h3 class="prosecutor-role">Methods & Modeling Counsel</h3>
+    <h3 class="prosecutor-role">Methods & Visual Counsel</h3>
     <p>
-      Eric scrutinizes every model—regression, machine learning, or survival 
-      analysis—ensuring the prosecution’s methods are defensible, reproducible, 
+      Eric scrutinizes the topic of this project along with model seleciton and
+      visualization ensuring the prosecution’s methods are defensible, reproducible, 
       and immune to statistical cross-examination.
     </p>
   </section>
+
+  <img src="photos/eric_xu.jpg" 
+   alt="Breast Cancer Mugshot" 
+   style="width:300px; border:3px solid black;">
 
   <!-- Edmund Wong -->
   <section class="prosecutor" id="edmund-wong">
