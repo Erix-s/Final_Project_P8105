@@ -23,6 +23,8 @@ output:
     Meet the prosecution team leading <strong>The Tumor Trial</strong>. 
     Each prosecutor brings a unique specialty to the case against Breast Cancer.
   </p>
+ 
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
   <!-- Kevin Guzman -->
   <section class="prosecutor" id="kevin-guzman">
@@ -36,7 +38,8 @@ output:
   <img src="photos/kevin_guzman.png" 
    alt="Breast Cancer Mugshot" 
    style="width:300px; border:3px solid black;">
-  
+   
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div> 
   <!-- Alexandria Taylor -->
   <section class="prosecutor" id="alexandria-taylor">
     <h2>Alexandria Taylor</h2>
@@ -48,13 +51,14 @@ output:
       by airtight analytics.
     </p>
   </section>
-  
+
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>   
   <!-- Eric Xu -->
   <section class="prosecutor" id="eric-xu">
     <h2>Eric Xu</h2>
     <h3 class="prosecutor-role">Methods & Visual Counsel</h3>
     <p>
-      Eric scrutinizes the topic of this project along with model seleciton and
+      Eric scrutinizes the topic of this project along with model selection and
       visualization ensuring the prosecution’s methods are defensible, reproducible, 
       and immune to statistical cross-examination.
     </p>
@@ -64,6 +68,7 @@ output:
    alt="Breast Cancer Mugshot" 
    style="width:300px; border:3px solid black;">
 
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div> 
   <!-- Edmund Wong -->
   <section class="prosecutor" id="edmund-wong">
     <h2>Edmund Wong</h2>
@@ -74,7 +79,7 @@ output:
     </p>
   </section>
   
-
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div> 
   <!-- Jiseung Lee -->
   <section class="prosecutor" id="jiseung-lee">
     <h2>Jiseung Lee</h2>

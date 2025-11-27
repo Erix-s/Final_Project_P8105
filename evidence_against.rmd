@@ -61,19 +61,34 @@ cancer <- cancer %>%
 
 The histogram of survival time shows a right-skewed distribution: many victims live with the consequences of breast cancer for several years, while a subset experience earlier “fatal” outcomes. Coloring by vital status highlights that deaths cluster at shorter follow-up times, as we would expect when a dangerous criminal strikes early.
 
+<div id="km-container" style="width:auto; height:auto;">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=6}
 #KM plot by race 
   km_plot <- survfit(Surv(survival_months, status_bin) ~ race, data = cancer)
-  km_ggplot <- ggsurvplot(km_plot, 
-                          data = cancer, 
-                          risk.table = TRUE, 
-                          conf.int = TRUE,
-                          ggtheme = theme_minimal()) 
-  
-  km_plotly <- ggplotly(km_ggplot$plot)
-  
-  km_plotly
+  km_ggplot <- ggsurvplot(
+  km_plot,
+  data = cancer,
+  risk.table = TRUE,
+  conf.int = TRUE,
+  ggtheme = theme_minimal()
+)
+
+# Add vertical zoom: limit y-axis to region where curves exist
+km_ggplot$plot <- km_ggplot$plot +
+  coord_cartesian(ylim = c(0.6, 1)) +      # adjust zoom here
+  theme(
+    panel.background = element_rect(fill = "#faf7e8", color = NA),
+    plot.background  = element_rect(fill = "#faf7e8", color = NA),
+    panel.grid       = element_line(color = "grey85")
+  )
+
+# Convert to Plotly AFTER adjustments
+km_plotly <- ggplotly(km_ggplot$plot) %>%
+  layout(autosize = TRUE) %>%
+  config(responsive = TRUE)
+km_plotly
 ```
+</div>
 
 
 The Kaplan–Meier curves show how survival unfolds over time for each racial group. Early on, survival probabilities remain high, but the curves gradually step downward as more victims succumb. The attached risk table shows how many patients remain “under surveillance” at each time point, reminding the jury that the end of each curve is based on relatively few individuals.
@@ -125,7 +140,7 @@ cox_results
 
 The Cox proportional hazards model allows us to quantify the impact of various clinical and demographic factors on survival time. The hazard ratios (HR) indicate how the risk of death changes with each covariate, holding all other factors constant. For example, an HR greater than 1 suggests increased risk, while an HR less than 1 indicates a protective effect.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=8}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=8,fig.dpi = 1000}
 # Visualizing Cox model results in forrest plot
 p_cox_forest <- cox_results %>%
   filter(term != "(Intercept)") %>%
@@ -139,7 +154,7 @@ p_cox_forest <- cox_results %>%
     x = "Covariates",
     y = "Hazard Ratio (HR)"
   ) +
-  theme_minimal()
+  theme_minimal(paper ="#faf7e8")
 
 p_cox_forest
 ```
@@ -150,10 +165,21 @@ The Cox model results provide compelling evidence against the defendant, Breast 
 
 ### Checking the Rules of the Court: Proportional Hazards Assumption
 
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# PH test
 cox_obj <- coxph(cox_formula, data = cancer)
 ph_test <- cox.zph(cox_obj)
-ph_test
+
+# Convert to clean data frame
+ph_df <- as.data.frame(ph_test$table) %>%
+  tibble::rownames_to_column("Variable") %>%
+  dplyr::rename(
+    Chisq = chisq,
+    DF = df,
+    P_value = p
+  )
+ph_df
 ```
 
 To be admissible, the Cox model must satisfy the proportional hazards (PH) assumption—that each covariate’s effect on the hazard is roughly constant over time. We assess this using Schoenfeld residual–based tests. Small p-values raise concerns about PH violation. Those for estrogen and progresterone status are below 0.05, which raises concern about the evidence. 
