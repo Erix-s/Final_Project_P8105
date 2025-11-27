@@ -65,3 +65,86 @@ cancer %>%
 ```
 
 Our defendant likes to effect people of various ages, but it seems to have a preference for `r quantile(cancer$age, 0.25)` to `r quantile(cancer$age, 0.75)` years old.
+
+### How Early Does the Defendant Strike?
+
+To understand how early breast cancer presents, we first examine the **distribution of cancer stage at diagnosis**. Earlier stages indicate early detection, while advanced stages reveal delayed discovery—giving our criminal, Breast Cancer, more time to commit harm.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+cancer %>%
+  count(n_stage) %>%
+  ggplot(aes(x = n_stage, y = n, fill = n_stage)) +
+  geom_col(color = "black") +
+  labs(
+    title = "Stage at Diagnosis: How Early Is Cancer Caught?",
+    x = "Cancer Stage",
+    y = "Number of Patients"
+  ) +
+  scale_fill_brewer(palette = "Reds") +
+  theme_minimal() +
+  theme(legend.position="none")
+
+cancer %>%
+  count(t_stage) %>%
+  ggplot(aes(x = t_stage, y = n, fill = t_stage)) +
+  geom_col(color = "black") +
+  labs(
+    title = "Stage at Diagnosis: How Early Is Cancer Caught?",
+    x = "Cancer Stage",
+    y = "Number of Patients"
+  ) +
+  scale_fill_brewer(palette = "Reds") +
+  theme_minimal() +
+  theme(legend.position="none")
+
+```
+
+Most victims are found at stage `r names(sort(table(cancer$n_stage), decreasing=TRUE))[1]`, suggesting that breast cancer often can be detected early. However, a significant number of cases are diagnosed at later stages, indicating that the defendant can sometimes evade early detection. It is crucial to also see that the tumor size (T stage) shows a similar pattern, with many cases being diagnosed at smaller size. 
+
+Now we investigate how long victims survive after their diagnosis depending on number of nodes involved. Boxplots help visualize survival time differences clearly.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=4}
+cancer %>%
+  ggplot(aes(x = n_stage, y = survival_months, fill = n_stage)) +
+  geom_boxplot(alpha = 0.7, color = "black") +
+  labs(
+    title = "Survival Months by Stage of Cancer",
+    x = "Stage at Diagnosis",
+    y = "Survival (Months)") +
+  scale_fill_brewer(palette = "Purples") +
+  theme_minimal() +
+  theme(legend.position="none")
+
+```
+
+The boxplots reveal that victims diagnosed at earlier stages (e.g., N1) tend to survive longer than those diagnosed at advanced stages (e.g., N3). This pattern underscores the critical importance of early detection of the defendant to improve survival outcomes.
+
+### survival by estrogen and progesterone receptor status
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=4}
+cancer %>%
+  ggplot(aes(x = estrogen_status, y = survival_months, fill = estrogen_status)) +
+  geom_boxplot(alpha = 0.7, color = "black") +
+  labs(
+    title = "Survival Months by Estrogen Receptor Status",
+    x = "Estrogen Receptor Status",
+    y = "Survival (Months)") +
+  scale_fill_brewer(palette = "Greens") +
+  theme_minimal() +
+  theme(legend.position="none")
+
+cancer %>%
+  ggplot(aes(x = progesterone_status, y = survival_months, fill = progesterone_status)) +
+  geom_boxplot(alpha = 0.7, color = "black") +
+  labs(
+    title = "Survival Months by Progesterone Receptor Status",
+    x = "Progesterone Receptor Status",
+    y = "Survival (Months)") +
+  scale_fill_brewer(palette = "Oranges") +
+  theme_minimal() +
+  theme(legend.position="none")
+
+```
+
+Other features like estrogen and progesterone receptor status also influence survival. Victims with positive receptor status tend to have longer survival times, indicating that the defendant's behavior may vary based on these biological markers.
+
