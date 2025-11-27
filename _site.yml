@@ -1,0 +1,5 @@
+name: "Yay internet!"
+output_dir: "."
+output:
+  html_document:
+    theme: cerulean
