@@ -19,3 +19,42 @@ output:
 
   <h1 class="casefile-title">Closing Statements</h1>
 
+  <p class="casefile-lede">
+    Ladies and gentlemen of the jury, you have now reviewed every piece of evidence entered into this record. 
+    The testimony did not come from eyewitnesses or informants, but from the data itself. 
+    Tumor features, survival curves, model estimates, and risk patterns have all revealed the same truth.
+  </p>
+
+  <p class="casefile-lede">
+    Breast Cancer strikes across ages, but most often between 47 and 61. 
+    It infiltrates quietly, grows without restraint, spreads through lymph nodes, 
+    and hides behind delayed detection. 
+    You saw how survival drops with advancing stage and nodal involvement, 
+    and how hormone receptor status shapes the defendant’s behavior.
+  </p>
+
+  <p class="casefile-lede">
+    The evidence also made clear that the burden is not equal. 
+    Survival curves showed racial disparities, reminding us that Breast Cancer exploits 
+    gaps in access, resources, and structural equity. 
+    The Cox model quantified these patterns, and validation through bootstrapping 
+    and cross-validation confirmed they were not chance, but the defendant’s signature.
+  </p>
+
+  <p class="casefile-lede">
+    This case has always been about one question: 
+    is the evidence strong enough to convict? 
+    The models, the graphics, the survival patterns all point in the same direction. 
+    **The harm is real. The pattern is consistent. The responsibility is clear.**
+  </p>
+
+  <p class="casefile-lede">
+    The People of P8105 submit that there is only one reasonable verdict. 
+    Based on the scientific forensic record you have examined, **the defendant is guilty**.
+  </p>
+
+  <p class="casefile-lede">
+    The prosecution rests.
+  </p>
+
+</div>
