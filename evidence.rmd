@@ -5,7 +5,6 @@ output:
     toc_float:
       collapsed: false
       smooth_scroll: true
-      toc_depth: 3
     theme: flatly
     highlight: tango
     df_print: paged
@@ -20,10 +19,10 @@ output:
 
   <h1 class="casefile-title">Evidence Source</h1>
   
-  
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
   <h2 class="casefile-subtitle">Exhibit A: Breast Cancer Dataset</h2>
-
+  
   <p class="casefile-text">
     This evidence file draws on the <strong>Breast Cancer</strong> dataset curated by Reihaneh Namdari and hosted on Kaggle.  
     It is a cleaned subset of the US <em>Surveillance, Epidemiology, and End Results (SEER)</em> cancer registry and focuses on
@@ -37,7 +36,7 @@ output:
   </ul>
 
   <h3 class="casefile-subheading">Key Evidence Fields</h3>
-
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
   <p class="casefile-text">
     Each “subject” in this case file includes 14 variables capturing demographic, tumor, and outcome information:
   </p>
@@ -51,7 +50,7 @@ output:
   </ul>
 
   <h3 class="casefile-subheading">How This Evidence Will Be Used</h3>
-
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
   <p class="casefile-text">
     In this investigation, the dataset serves as the primary evidence for exploring how clinical and pathological
     features of breast cancer relate to patient survival. Using statistical techniques, we will:

@@ -18,6 +18,7 @@ output:
   <a href="index.html" class="casefile-button">📁 Return to the Front</a>
 
   <h1 class="casefile-title">About the Crime Scene</h1>
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 #Loading libraries needed for this section 
@@ -49,7 +50,10 @@ write_csv(cancer, "data/cancer_clean.csv")
 ```
 
 ### Understanding the Crime Scene
+
 The crime scene is where the evidence is found. In this case, the crime scene is the biological and clinical data collected from patients diagnosed with breast cancer. This data includes various features such as tumor size, lymph node involvement, hormone receptor status, and patient demographics. These features help us understand the nature of the crime committed by breast cancer and provide insights into its behavior
+
+<div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 #### Age of the typical victim
 
@@ -66,7 +70,10 @@ cancer %>%
 
 Our defendant likes to effect people of various ages, but it seems to have a preference for `r quantile(cancer$age, 0.25)` to `r quantile(cancer$age, 0.75)` years old.
 
+<div style="border-top: 1px solid #555; margin: 5px 0;"></div>
+
 ### How long do people survive after being attacked?
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=5, fig.height=4}
 p_surv_hist <- cancer %>% 
   ggplot(aes(x = survival_months, fill = status)) +
@@ -82,6 +89,8 @@ p_surv_hist
 ```
 
 The histogram above shows the distribution of survival times for victims after being diagnosed with breast cancer. The defendant's impact varies widely, with some victims surviving for many months while others succumb more quickly. This variability highlights the complexity of the crime committed by breast cancer.
+
+<div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 ### How Early Does the Defendant Strike?
 
@@ -118,7 +127,9 @@ cancer %>%
 
 Most victims are found at stage `r names(sort(table(cancer$n_stage), decreasing=TRUE))[1]`, suggesting that breast cancer often can be detected early. However, a significant number of cases are diagnosed at later stages, indicating that the defendant can sometimes evade early detection. It is crucial to also see that the tumor size (T stage) shows a similar pattern, with many cases being diagnosed at smaller size. 
 
-Now we investigate how long victims survive after their diagnosis depending on number of nodes involved. Boxplots help visualize survival time differences clearly.
+<div style="border-top: 1px solid #555; margin: 5px 0;"></div>
+
+__Now we investigate how long victims survive after their diagnosis depending on number of nodes involved.__ Boxplots help visualize survival time differences clearly.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=4}
 cancer %>%
@@ -135,6 +146,8 @@ cancer %>%
 ```
 
 The boxplots reveal that victims diagnosed at earlier stages (e.g., N1) tend to survive longer than those diagnosed at advanced stages (e.g., N3). This pattern underscores the critical importance of early detection of the defendant to improve survival outcomes.
+
+<div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 ### Survival by estrogen and progesterone receptor status
 

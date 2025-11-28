@@ -18,7 +18,7 @@ output:
   <a href="index.html" class="casefile-button">📁 Return to the Front</a>
 
   <h1 class="casefile-title">Evidence Against the Defendant</h1>
-
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Loading necessary libraries
 library(tidyverse)
@@ -57,9 +57,10 @@ cancer <- cancer %>%
   mutate(
     status_bin = if_else(status == "Dead", 1, 0)
   )
+
 ```
 
-The histogram of survival time shows a right-skewed distribution: many victims live with the consequences of breast cancer for several years, while a subset experience earlier “fatal” outcomes. Coloring by vital status highlights that deaths cluster at shorter follow-up times, as we would expect when a dangerous criminal strikes early.
+<a href = "crime_scene.html" target="_blank" rel="noopener noreferrer">The histogram of survival time</a> shows a right-skewed distribution: many victims live with the consequences of breast cancer for several years, while a subset experience earlier “fatal” outcomes. Coloring by vital status highlights that deaths cluster at shorter follow-up times, as we would expect when a dangerous criminal strikes early.
 
 <div id="km-container" style="width:auto; height:auto;">
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=6}
@@ -96,6 +97,8 @@ The Kaplan–Meier curves show how survival unfolds over time for each racial gr
 Comparing curves across racial groups reveals apparent disparities in survival. Some groups show consistently lower survival probabilities at comparable times, suggesting that Breast Cancer does not strike all communities equally. These differences motivate treating race as a key covariate in our multivariable survival model to formally assess these disparities while adjusting for other clinical factors.
 
 ### Putting the Defendant on the Stand: Cox Proportional Hazards Model
+
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 # Define the Cox model formula
@@ -165,6 +168,7 @@ The Cox model results provide compelling evidence against the defendant, Breast 
 
 ### Checking the Rules of the Court: Proportional Hazards Assumption
 
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # PH test
@@ -185,7 +189,10 @@ ph_df
 To be admissible, the Cox model must satisfy the proportional hazards (PH) assumption—that each covariate’s effect on the hazard is roughly constant over time. We assess this using Schoenfeld residual–based tests. Small p-values raise concerns about PH violation. Those for estrogen and progresterone status are below 0.05, which raises concern about the evidence. 
 
 ### Shaking the Evidence: Bootstrap Hazard Ratios (200 Resamples)
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 set.seed(123)  # For reproducibility
 # Create bootstrap resamples
 boot_resamples <- bootstraps(cancer, times = 200)
@@ -233,7 +240,9 @@ The bootstrap analysis provides robust estimates of hazard ratios and confidence
 
 ### Can We Predict Who Will Be Attacked Next? 5-Fold Cross-Validation
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 set.seed(123)  # For reproducibility
 # Create 5-fold cross-validation splits
 cv_splits <- vfold_cv(cancer, v = 5)

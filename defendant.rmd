@@ -18,7 +18,7 @@ output:
   <a href="index.html" class="casefile-button">📁 Return to the Front</a>
 
   <h1 class="casefile-title">The Defendant</h1>
-
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
   <p class="casefile-intro">
     Standing trial in <strong>Breast Cancer v. The Peopel of P8105</strong> is the accused:
     <strong>Breast Cancer</strong>. Below is the official case dossier compiled
@@ -31,7 +31,8 @@ output:
 
 
   <section id="identity">
-    <h2>1. Identity of the Defendant</h2>
+    <h2> 1. Identity of the Defendant</h2>
+    <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
     <p>
       <strong>Legal Name:</strong> Breast Cancer (Invasive and In Situ Forms) <br>
       <strong>Charge Category:</strong> Malignant Neoplasm, Specializing in the Mammary Gland <br>
@@ -47,7 +48,8 @@ output:
   </section>
 
   <section id="aliases">
-    <h2>2. Known Aliases & Accomplices</h2>
+    <h2> 2. Known Aliases & Accomplices</h2>
+    <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
     <ul>
       <li><strong>Aliases:</strong> “The Lump,” “The Lesion,” “The Shadow on the Mammogram.”</li>
       <li><strong>Molecular Alter Egos:</strong> HER2-positive, Triple-Negative, Luminal A, Luminal B.</li>
@@ -65,7 +67,8 @@ output:
   </section>
 
   <section id="charges">
-    <h2>3. Formal Charges</h2>
+    <h2> 3. Formal Charges</h2>
+    <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
     <p>
       The Prosecution alleges that Breast Cancer is guilty of the following counts:
     </p>
@@ -97,7 +100,8 @@ output:
   </section>
 
   <section id="weaknesses">
-  <h2>4. Evidence, Crime Scene & Analytic Strategy</h2>
+  <h2> 4. Evidence, Crime Scene & Analytic Strategy</h2>
+  <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
   <p>
     In <strong>Breast Cancer v. The Peopel of P8105</strong>, the jury is not swayed by emotion but by evidence. 
     This case file presents data that reconstructs the crime scene and tests how Breast Cancer’s 
@@ -126,6 +130,7 @@ output:
     </li>
   </ul>
   <p>
+  <div style="border-top: 1px solid #555; margin: 15px 0;"></div>
     The core question of <strong>Breast Cancer v. The Peopel of P8105</strong> is whether these analytic investigations — 
     of the crime scene, survival, and patterns in characteristics — provide enough evidence to 
     convict Breast Cancer in the court of public health, or whether reasonable doubt remains.
