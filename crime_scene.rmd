@@ -49,6 +49,8 @@ colSums(is.na(cancer)) #there are no missing data
 write_csv(cancer, "data/cancer_clean.csv")
 ```
 
+  <h2 class="casefile-subtitle">Exhibit B: Basic Information</h2>
+
 ### Understanding the Crime Scene
 
 The crime scene is where the evidence is found. In this case, the crime scene is the biological and clinical data collected from patients diagnosed with breast cancer. This data includes various features such as tumor size, lymph node involvement, hormone receptor status, and patient demographics. These features help us understand the nature of the crime committed by breast cancer and provide insights into its behavior
