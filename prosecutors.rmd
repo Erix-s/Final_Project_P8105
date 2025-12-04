@@ -17,7 +17,7 @@ output:
   <h1 class="casefile-title">The Prosecutors</h1>
 
   <p class="casefile-intro">
-    Meet the prosecution team leading <strong>The Tumor Trial</strong>. 
+    Meet the prosecution team leading the case against the defendant. 
     Each prosecutor brings a unique specialty to the case against Breast Cancer.
   </p>
  
@@ -28,7 +28,7 @@ output:
     <h2>Kevin Guzman</h2>
     <h3 class="prosecutor-role">Data Prosecutor</h3>
     <p>
-      Kevin builds the files that together form the backbone of the prosecution’s case. He compies thigns into a cohesive whole, ensuring that every piece of data points squarely to Breast Cancer’s guilt.
+      Kevin builds the files that together form the backbone of the prosecution’s case. He compiles evidence into a cohesive whole, ensuring that every piece of data points squarely to Breast Cancer’s guilt.
     </p>
   </section>
   
@@ -95,6 +95,10 @@ output:
       guilt feel inevitable and undeniable.
     </p>
   </section>
+  
+  <img src="photos/gabble.jpeg" 
+   alt="Breast Cancer Mugshot" 
+   style="width:300px; border:3px solid black;">
 
 
 </div>
