@@ -19,6 +19,9 @@ output:
 
   <h1 class="casefile-title">Evidence Against the Defendant</h1>
   <div style="border-top: 1px solid #555; margin: 5px 0;"></div>
+
+  <h2 class="casefile-subtitle">Exhibit C: Forensic Analysis </h2>
+  
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Loading necessary libraries
 library(tidyverse)
