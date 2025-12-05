@@ -952,7 +952,7 @@ sessionInfo()
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="closing.html" class="casefile-button">
-    ⬅️ Previous
+    &xlarr; Previous
   </a>
 
   <!-- Right / Next -->

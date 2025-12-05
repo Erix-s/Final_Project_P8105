@@ -140,11 +140,11 @@ output:
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="prosecutors.html" class="casefile-button">
-    ⬅️ Previous
+    &xlarr; Previous
   </a>
 
   <!-- Right / Next -->
   <a href="evidence.html" class="casefile-button">
-    Next ➡️
+    Next &xrarr;
   </a>
 </div>

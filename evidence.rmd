@@ -34,10 +34,7 @@ output:
     <li><strong>Sample size:</strong> 4,024 female patients with breast cancer.</li>
     <li><strong>Time frame:</strong> Diagnoses from 2006–2010, with follow-up for survival in months.</li>
     <li>
-      <strong>Kaggle Dataset Page:</strong>  
-      <a href="https://www.kaggle.com/datasets/reihanenamdari/breast-cancer" target="_blank">
-        https://www.kaggle.com/datasets/reihanenamdari/breast-cancer
-      </a>
+      <a href="https://www.kaggle.com/datasets/reihanenamdari/breast-cancer" target="_blank"> <strong>Kaggle Dataset Page</strong> </a>
     </li>
   </ul>
 
@@ -74,12 +71,12 @@ output:
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="defendant.html" class="casefile-button">
-    ⬅️ Previous
+    &xlarr; Previous
   </a>
 
   <!-- Right / Next -->
   <a href="crime_scene.html" class="casefile-button">
-    Next ➡️
+    Next &xrarr;
   </a>
 </div>
 </p>

@@ -60,7 +60,7 @@ output:
     <h3 class="prosecutor-role">Methods & Visual Counsel</h3>
     <p>
       Eric scrutinizes the topic of this project along with model selection and
-      visualization ensuring the prosecution’s methods are defensible, reproducible, 
+      visualization; ensuring the prosecution’s methods are defensible, reproducible, 
       and immune to statistical cross-examination.
     </p>
   </section>
@@ -102,11 +102,11 @@ output:
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="index.html" class="casefile-button">
-    ⬅️ Previous
+    To Front 
   </a>
 
   <!-- Right / Next -->
   <a href="defendant.html" class="casefile-button">
-    Next ➡️
+    Next &xrarr;
   </a>
 </div>

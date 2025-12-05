@@ -274,11 +274,11 @@ The 5-fold cross-validation assesses the predictive performance of our Cox model
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="crime_scene.html" class="casefile-button">
-    ⬅️ Previous
+    &xlarr; Previous
   </a>
 
   <!-- Right / Next -->
   <a href="closing.html" class="casefile-button">
-    Next ➡️
+    Next &xrarr;
   </a>
 </div>

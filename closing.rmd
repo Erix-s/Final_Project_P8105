@@ -60,12 +60,12 @@ output:
 <div style="display: flex; justify-content: space-between; margin-top: 0px;">
   <!-- Left / Back -->
   <a href="evidence_against.html" class="casefile-button">
-    ⬅️ Previous
+    &xlarr; Previous
   </a>
 
   <!-- Right / Next -->
   <a href="crime_report.html" class="casefile-button">
-    Next ➡️
+    Next &xrarr;
   </a>
 </div>
 
