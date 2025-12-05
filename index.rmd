@@ -46,6 +46,13 @@ output:
   
   <div style="border-top: 1px solid #ccc; margin: 30px 0;"></div>
   <h2 class="casefile-subtitle" style="margin-bottom: 0;">
+  
+  Exhibit #1: Video Evidence – Project Overview
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7-mD6eFMCiQ?si=v_eGuGSn4KBapsD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
+  <div style="border-top: 1px solid #ccc; margin: 30px 0;"></div>
+  <h2 class="casefile-subtitle" style="margin-bottom: 0;">
   When you are ready, deliberate here:
   </h2>
 
